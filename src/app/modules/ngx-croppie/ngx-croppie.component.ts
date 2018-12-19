@@ -25,7 +25,7 @@ export class NgxCroppieComponent implements OnDestroy, OnInit {
   @Input() croppieOptions: CroppieOptions;
   @Input() imageUrl: string;
   @Input() points: number[];
-  @Input() bind: (img: string) => void;
+  @Input() attach: (img: string) => void;
   @Input() outputFormatOptions: ResultOptions = {
     type: 'base64',
     size: 'viewport'
@@ -46,10 +46,11 @@ export class NgxCroppieComponent implements OnDestroy, OnInit {
 
     this._croppie.bind({
       url: this.imageUrl,
-      points: this.points
+      points: this.points,
+      zoom: 0
     });
-    this.bind = (img: string) => {
-      this._croppie.bind({ url: this.imageUrl, points: this.points });
+    this.attach = (img: string) => {
+      this._croppie.bind({ url: this.imageUrl, points: this.points, zoom: 0 });
     };
   }
 
