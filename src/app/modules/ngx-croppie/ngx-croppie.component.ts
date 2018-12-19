@@ -1,4 +1,13 @@
-import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    SimpleChanges,
+    Input,
+    EventEmitter,
+    Output,
+    ViewChild,
+    ElementRef
+} from '@angular/core';
 
 import * as Croppie from 'croppie';
 import { CroppieOptions, ResultOptions, CropData } from 'croppie';
@@ -20,6 +29,10 @@ export class NgxCroppieComponent implements OnInit {
     @Output() result: EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>
                     = new EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>();
     private _croppie: Croppie;
+
+    constructor() {
+    }
+
     ngOnInit(): void {
         // https://github.com/Foliotek/Croppie/issues/470 :-( )
         this._croppie = new Croppie['Croppie'](this.imageEdit.nativeElement, this.croppieOptions);
@@ -42,8 +55,7 @@ export class NgxCroppieComponent implements OnInit {
         this._croppie.rotate(degrees);
     }
 
-  get(): CropData {
-      return this._croppie.get();
-  }
-
+    get(): CropData {
+        return this._croppie.get();
+    }
 }

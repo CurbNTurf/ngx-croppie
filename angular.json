@@ -22,7 +22,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/croppie/croppie.css"
+              "node_modules/croppie/croppie.css",
+              "assets/styles/sem-ui-button.css"
             ],
             "scripts": []
           },
